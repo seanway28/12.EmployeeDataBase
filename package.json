@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/seanway28/12.EmployeeDataBase/issues"
   },
-  "homepage": "https://github.com/seanway28/12.EmployeeDataBase#readme"
+  "homepage": "https://github.com/seanway28/12.EmployeeDataBase#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  }
 }
