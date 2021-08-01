@@ -1,0 +1,19 @@
+{
+  "name": "12.employeedatabase",
+  "version": "1.0.0",
+  "description": "The featured application helps users simplify managing their employees with ease using their own Employee Database. To do this the user will use the Inquierer prompt. Users will then have the option to create amd view all departments, roles and employees.",
+  "main": "inquierer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanway28/12.EmployeeDataBase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanway28/12.EmployeeDataBase/issues"
+  },
+  "homepage": "https://github.com/seanway28/12.EmployeeDataBase#readme"
+}
