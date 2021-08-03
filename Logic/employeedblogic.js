@@ -1,9 +1,13 @@
-const db = require('../../db/connection'); 
+const db = require("../db/connection"); 
 
 // Get all the employees 
 readEmployee = () => { 
     const sql = `SELECT * FROM employee`; 
-    return db.query(sql) 
+    db.query(sql, (err, data) => {
+        if(err) throw err;
+
+        console.table(data)
+    }) 
    } 
 
    // create a new employee 

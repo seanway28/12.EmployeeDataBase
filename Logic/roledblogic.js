@@ -1,7 +1,7 @@
-const db = require('../../db/connection');
+const db = require('../db/connection');
 
 // get the roles
-readROLE = () => {'SELECT * FROM role';
+readRole = () => {'SELECT * FROM role';
 
 return db.query(sql)
 }
@@ -25,6 +25,6 @@ deleteRole=(id) =>{
 }
 
 module.exports = {
-    readRile, addRole, deleteRole
+    readRole, addRole, deleteRole
     
 }

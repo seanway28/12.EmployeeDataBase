@@ -1,29 +1,38 @@
-const db = require('../..db/connection');
+const db = require('../db/connection');
 
 //Alphabetize Depts.
 readDepartment = () =>{
     const sql = 'Select * FROM department';
 
-    return dbquery(sql)
+    db.query(sql, (err, data) => {
+        if(err) throw err;
+
+        console.table(data)
+    }) 
+   
 }
 
 // delete dept.
-deleteDepartment = (id) => {
-    const sql = 'DELETE FROM department WHERE id = ?';
+// deleteDepartment = (id) => {
+//     const sql = 'DELETE FROM department WHERE id = ?';
 
-    return db.query(sql, id)
-}
+//     return db.query(sql, id)
+// }
 
 // create new dept.
 addDepartment = (name =>{ 
     const sql = 'INSERT INTO Department (name) values (?)'; 
     
-    return db.query(sql, name);
+    db.query(sql, [name], (err, data) => {
+        if(err) throw err
+    })
 }
 );
 
 module.exports = {
 
-    readDepartment, deleteDepartment, addDepartment
+    readDepartment,
+    // deleteDepartment, 
+    addDepartment
 }
 

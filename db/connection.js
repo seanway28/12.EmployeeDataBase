@@ -7,8 +7,9 @@ const db = mysql.createConnection({
 
     // your mysql username,
 ,user:'root',
-// your mysql password
-password: 'perAsperaAdAstra!'
+// your mysql password,
+port: 3306,
+password: 'Bloomington28*'
 ,database: 'company'
 });
 

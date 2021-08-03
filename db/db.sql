@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS company;
+DROP DATABASE IF EXISTS company;
 
 CREATE DATABASE company;
 
