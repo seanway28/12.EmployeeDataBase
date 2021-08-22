@@ -51,7 +51,7 @@ const roledbLogic = require('./Logic/roledblogic')
                     console.log('Goodbye') 
             } 
                         
-})}
+})};
 
 const addDepartment = () => { 
     console.log(` 
@@ -61,18 +61,18 @@ const addDepartment = () => {
     `); 
     return inquirer.prompt([ 
     { 
-    type: 'input', 
-    name: 'departmentName', 
-    message: 'What is the name of the department? (Required)', 
-    validate: nameInput => { 
-    if (nameInput) { 
-    return true; 
-    } else { 
-    console.log('You need to enter a name!'); 
-    return false; 
-    } 
-    } 
-    } 
+            type: 'input', 
+             name: 'departmentName', 
+            message: 'What is the name of the department? (Required)', 
+            validate: nameInput => { 
+                if (nameInput) { 
+                    return true; 
+                } else { 
+                console.log('Enter a name please!'); 
+                return false; 
+                } 
+            } 
+        }    
     ]) 
     .then(answer => { 
     return departmentdbLogic.addDepartment(answer.departmentName) 
@@ -82,9 +82,9 @@ const addDepartment = () => {
     console.log(result) 
     chooseOption() 
     
-    });}
-
-    const addRole = () => { 
+    });
+};
+const addRole = () => { 
         console.log(` 
         ================= 
         Add a Role 
@@ -92,198 +92,171 @@ const addDepartment = () => {
             `);
             return inquirer.prompt([ 
                 { 
-                type: 'input', 
-                name: 'roleTitle', 
-                message: 'What is the title of the role? (Required)', 
-                validate: titleInput => { 
+            type: 'input', 
+            name: 'roleTitle', 
+            message: 'What is the title of the role? (Required)', 
+            validate: titleInput => { 
                 if (titleInput) { 
-                return true; 
+                    return true; 
                 } else { 
-                console.log('You need to enter a title!'); 
+                    console.log('Please enter a title.'); 
                 return false; 
                 } 
-                } 
-                }, 
-                { 
-                type: 'number', 
-                name: 'roleSalary', 
-                message: 'What is the salary of the role? (Required)', 
-                validate: salaryInput => { 
+            } 
+        }, 
+    { 
+            type: 'number', 
+            name: 'roleSalary', 
+            message: 'What is the salary of the role? (Required)', 
+            validate: salaryInput => { 
                 if (salaryInput) { 
-                return true; 
+                     return true; 
                 } else { 
-                console.log('You need to enter a salary!'); 
-                return false; 
+                    console.log('Please Enter your salary.'); 
+                    return false; 
                 } 
-                } 
-                }, 
-                { 
-                type: 'number', 
-                name: 'departmentId', 
-                message: 'What is the department ID of the role? (Required)', 
-                validate: idInput => { 
+            } 
+    }, 
+    { 
+            type: 'number', 
+            name: 'departmentId', 
+            message: 'What is the department ID of the role? (Required)', 
+            validate: idInput => { 
                 if (idInput) { 
-                return true; 
+                    return true; 
                 } else { 
-                console.log('You need to enter an ID!'); 
+                console.log('Please enter an ID.'); 
+                    return false; 
+                } 
+            } 
+         } 
+    ]) 
+    .then(answer => { 
+    return roledbLogic.addRole(answer.roleTitle, answer.roleSalary, answer.departmentId) 
+                
+    }) 
+    .then((result)=> { 
+    console.log(result) 
+    chooseOption() 
+    }); 
+                
+    }; 
+    const addEmployee = () => { 
+    console.log(` 
+    ================= 
+    Add an Employee 
+    ================= 
+    `); 
+
+        return inquirer.prompt([ 
+        { 
+        type: 'input', 
+        name: 'firstName', 
+        message: 'What is the first name of the employee? (Required)', 
+        validate: firstInput => { 
+            if (firstInput) { 
+                return true; 
+            } else { 
+                console.log('Please enter a first name.'); 
                 return false; 
                 } 
+            } 
+        }, 
+        { 
+        type: 'input', 
+        name: 'lastName', 
+        message: 'What is the last name of the employee? (Required)', 
+        validate: lastInput => { 
+            if (lastInput) { 
+                return true; 
+            } else { 
+                console.log('Please enter a last name.'); 
+                return false; 
                 } 
+            } 
+        }, 
+        { 
+        type: 'number', 
+        name: 'roleId', 
+        message: 'What is the role ID of the employee? (Required)', 
+        validate: roleInput => { 
+            if (roleInput) { 
+                return true; 
+        } else { 
+                console.log('Please enter an ID.'); 
+                return false; 
                 } 
-                ]) 
-                .then(answer => { 
-                return roledbLogic.addRole(answer.roleTitle, answer.roleSalary, answer.departmentId) 
+            } 
+        }, 
+        { 
+        type: 'number', 
+        name: 'departmentId', 
+        message: 'What is the department ID of the employee? (Required)', 
+        validate: departmentInput => { 
+            if (departmentInput) { 
+                return true; 
+            } else { 
+                console.log('Please enter an ID.'); 
+                return false; 
+                } 
+            } 
+        } 
                 
-                }) 
-                .then((result)=> { 
-                console.log(result) 
+    ]) 
+    .then(answer => { 
+        return employeedbLogic.addEmployee(answer.firstName, answer.lastName, answer.roleId, answer.departmentId) 
+                
+    }) 
+    .then((result)=> { 
+        console.log(result) 
                 chooseOption() 
                 
-                }); 
+ }); 
                 
-               }; 
-                const addEmployee = () => { 
-                console.log(` 
-                ================= 
-                Add an Employee 
-                ================= 
-                `); 
-                return inquirer.prompt([ 
-                { 
-                type: 'input', 
-                name: 'firstName', 
-                message: 'What is the first name of the employee? (Required)', 
-                validate: firstInput => { 
-                if (firstInput) { 
-                return true; 
-                } else { 
-                console.log('You need to enter a first name!'); 
-                return false; 
-                } 
-                } 
-                }, 
-                { 
-                type: 'input', 
-                name: 'lastName', 
-                message: 'What is the last name of the employee? (Required)', 
-                validate: lastInput => { 
-                if (lastInput) { 
-                return true; 
-                } else { 
-                console.log('You need to enter a last name!'); 
-                return false; 
-                } 
-                } 
-                }, 
-                { 
-                type: 'number', 
-                name: 'roleId', 
-                message: 'What is the role ID of the employee? (Required)', 
-                validate: roleInput => { 
-                if (roleInput) { 
-                return true; 
-                } else { 
-                console.log('You need to enter an ID!'); 
-                return false; 
-                } 
-                } 
-                }, 
-                { 
-                type: 'number', 
-                name: 'departmentId', 
-                message: 'What is the department ID of the employee? (Required)', 
-                validate: departmentInput => { 
-                if (departmentInput) { 
-                return true; 
-                } else { 
-                console.log('You need to enter an ID!'); 
-                return false; 
-                } 
-                } 
-                } 
-                ]) 
-                .then(answer => { 
-                return employeedbLogic.addEmployee(answer.firstName, answer.lastName, answer.roleId, answer.departmentId) 
+    }; 
+    const updateEmployee = () => { 
+        console.log(` 
+        ================= 
+        Update an Employee 
+        ================= 
+    `); 
+    return inquirer.prompt([ 
+        { 
+        type: 'number', 
+        name: 'roleId', 
+        message: 'What is the role ID of the employee? (Required)', 
+        validate: roleInput => { 
+            if (roleInput) { 
+            return true; 
+        } else { 
+            console.log('Please enter a role ID!'); 
+            return false; 
+            } 
+        } 
+    }, 
+        { 
+        type: 'number', 
+        name: 'employeeId', 
+        message: 'What is the id of the employee? (Required)', 
+        validate: idInput => { 
+            if (idInput) { 
+            return true; 
+        } else { 
+            console.log('Please enter an id.'); 
+            return false; 
+            } 
+        }      
+        }    
+    ]) 
+    .then(answer => { 
+    return employeedbLogic.updateEmployee(answer.roleId, answer.employeeId) 
                 
-                }) 
-                .then((result)=> { 
-                console.log(result) 
-                chooseOption() 
+    }) 
+    .then((result)=> { 
+    console.log(result) 
+    chooseOption() 
                 
-                }); 
+    }); 
                 
-               }; 
-                const updateEmployee = () => { 
-                console.log(` 
-                ================= 
-                Update an Employee 
-                ================= 
-                `); 
-                return inquirer.prompt([ 
-                { 
-                type: 'number', 
-                name: 'roleId', 
-                message: 'What is the role ID of the employee? (Required)', 
-                validate: roleInput => { 
-                if (roleInput) { 
-                return true; 
-                } else { 
-                console.log('You need to enter a role ID!'); 
-                return false; 
-                } 
-                } 
-                }, 
-                { 
-                type: 'number', 
-                name: 'employeeId', 
-                message: 'What is the id of the employee? (Required)', 
-                validate: idInput => { 
-                if (idInput) { 
-                return true; 
-                } else { 
-                console.log('You need to enter an id!'); 
-                return false; 
-                } 
-                } 
-                } 
-                ]) 
-                .then(answer => { 
-                return employeedbLogic.updateEmployee(answer.roleId, answer.employeeId) 
-                
-                }) 
-                .then((result)=> { 
-                console.log(result) 
-                chooseOption() 
-                
-                }); 
-                
-               }; 
-                chooseOption(); 
-
-
-const inquirer = require('inquirer');
-const deptLogic = require('./Logic/departmentbdlogic');
-
-function start(){
-    inquirer.prompt([{
-        message: "What would you like to do?",
-        name: "choice",
-        type: "list",
-        choices: ["View Departments", "Add Departments", "Done"]
-    }]).then(({choice}) => {
-        if(choice == "View Departments") {
-            deptLogic.readDepartment()
-            start()
-        }else if(choice == "Add Departments"){
-            inquirer.prompt([{
-                message: "What's the new department Name?",
-                name: "deptName"
-            }]).then(({deptName}) => {
-                deptLogic.addDepartment(deptName)
-                start()
-            })
-        }
-    })
-}
-
-start()
+   }; 
+    chooseOption(); 
