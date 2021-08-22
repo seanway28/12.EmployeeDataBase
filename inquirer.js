@@ -5,62 +5,65 @@ const departmentDbLogic = require('./Logic/dbLogic/departmentDbLogic')
 const employeedbLogic = require('./Logic/dbLogic/employeeDblogic') 
 const roledbLogic = require('./Logic/dbLogic/roleDblogic') 
 
-    const chooseOption = () => {
-        console.log(` 
-        ================== 
-        Employee Database 
-        ================== 
-        `); 
-        return inquirer.prompt([{ 
-                type: 'list', 
-                name: 'companyChoice', 
-                message: 'What would you like to do?', 
-                choices: ['view all departments', 'view all roles', 'view all employees', 'add a department', 'add a role', 'add an employee', 'update employee role','quit'],
-                validate: titleInput => { 
-                    if (titleInput) { 
-                        return true; 
-                    } else { 
-                        console.log('Please enter a title.'); 
-                    return false; 
-                    } 
-                }
-            }])
-         .then(answer => { 
-            if (answer.companyChoice === 'view all departments') { 
-            readDepartment().then(departments => { 
-               return console.table(departments) 
-            }).then(() => chooseOption()) 
-        }        
-            else if (answer.companyChoice === 'view all roles') { 
-                readRole().then(roles => { 
-                return console.table(roles) 
-            }).then(() => chooseOption()) 
-            } 
-            else if (answer.companyChoice === 'view all employees') { 
-                readEmployee().then(employees => { 
-                    return console.table(employees) 
-            }).then(() => chooseOption()) 
-            }
-            else if (answer.companyChoice === 'add a department') 
-                    addDepartment();
-            else if (answer.companyChoice === 'delete a department') { 
-                    deleteDepartment(); 
-            } 
-            else if (answer.companyChoice === 'add a role') { 
-                    addRole(); 
-            } 
-            else if (answer.companyChoice === 'add an employee') { 
-                    addEmployee(); 
-            } 
-            else if (answer.companyChoice === 'update an employee role') { 
-                    updateEmployee(); 
-            } 
-            else {
-                console.log('Goodbye!')
-            }
-        });
-    }
-
+const testInquirer = () => {
+    console.log(` 
+    ================== 
+    Employee Database 
+    ================== 
+    `); 
+    inquirer.prompt([{ 
+      type: 'list', 
+      name: 'companyChoice', 
+      message: 'What would you like to do?', 
+      choices: ['view all departments', 'view all roles', 'view all employees', 'add a department', 'add a role', 'add an employee', 'update employee role','quit'],
+      validate: titleInput => { 
+        if (titleInput) { 
+            return true; 
+        } else { 
+            console.log('Please enter a title.'); 
+        return false; 
+        } 
+      }
+    }])
+    .then(answer => { 
+      if (answer.companyChoice === 'view all departments') { 
+        readDepartment().then(departments => { 
+          console.table(departments) 
+          testInquirer()
+        })
+      }        
+      else if (answer.companyChoice === 'view all roles') { 
+        readRole().then(roles => { 
+          console.table(roles) 
+          testInquirer()
+        })
+      }
+      else if (answer.companyChoice === 'view all employees') { 
+        readEmployee().then(employees => { 
+          console.table(employees) 
+          testInquirer()
+        })
+      }
+      else if (answer.companyChoice === 'add a department') 
+        addDepartment();
+      else if (answer.companyChoice === 'delete a department') { 
+        deleteDepartment(); 
+      } 
+      else if (answer.companyChoice === 'add a role') { 
+        addRole(); 
+      } 
+      else if (answer.companyChoice === 'add an employee') { 
+        addEmployee(); 
+      } 
+      else if (answer.companyChoice === 'update an employee role') { 
+        updateEmployee(); 
+      } 
+      else {
+        console.log('Goodbye!')
+      }     
+    });
+  };
+  testInquirer()
 
 const addDepartment = () => { 
         console.log(` 
@@ -268,4 +271,4 @@ const addRole = () => {
     }); 
                 
    }; 
-    chooseOption(); 
+//    chooseOption(); 
