@@ -1,8 +1,8 @@
 // Require the Inquier npm package
 
 const inquirer = require('inquirer');
-const departmentdbLogic = require('./Logic/DbLogic/departmentDbLogic')
-const employeedbLogic = require('./Logic/dbLogic/employeedblogic') 
+const departmentDbLogic = require('./Logic/dbLogic/departmentDbLogic')
+const employeedbLogic = require('./Logic/dbLogic/employeeDblogic') 
 const roledbLogic = require('./Logic/dbLogic/roleDblogic') 
 
     const chooseOption = () => {
