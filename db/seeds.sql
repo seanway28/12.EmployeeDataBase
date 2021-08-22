@@ -1,26 +1,27 @@
 INSERT INTO department
-( name )
+( id, name )
 VALUES
-('Front-end Development'),
-('Back-end Development'), 
- ( 'Marketing'), 
- ('Management'); 
+ (1, 'Front-end Development'),
+ (2, 'Back-end Development'), 
+ (3, 'Marketing'), 
+ (4, 'Management'); 
 
 INSERT INTO role 
- ( title, salary, department_id) 
+ (id, title, salary, department_id) 
 
 VALUES 
- ('Senior UI Director', 105000, 1), 
- ('Software Developer', 93000, 2), 
- ('Marketing Research Analyst', 77000, 3), 
- ('Manager', 100000, 4);
+ (1, 'Senior UI Director', 105000, 1), 
+ (2, 'Software Developer', 93000, 2), 
+ (3, 'Marketing Research Analyst', 77000, 3), 
+ (4, 'Manager', 100000, 4);
 
  INSERT INTO employee 
- (first_name, last_name, role_id, manager_id) 
+ (id, first_name, last_name, role_id, manager_id) 
 VALUES 
- ('Jamie', 'Fraser', 1, 4), 
- ( 'Jackie', 'London', 2, 4), 
- ( 'Roberta', 'Bruce', 3, 4), 
- ( 'Gerald', 'Griffin', 4, 4); 
+ (1'James', 'Fraser', 1, 4), 
+ (2 'Jackie', 'Logan', 2, 4), 
+ (3, 'Roberta', 'Bruce', 3, 4), 
+ (4, 'Gerald', 'Griffin', 4, 4); 
 
 
+// Question: How do I connect the manager_id?
