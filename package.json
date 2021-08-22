@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/seanway28/12.EmployeeDataBase.git"
   },
-  "author": "",
+  "author": "smc",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/seanway28/12.EmployeeDataBase/issues"
@@ -19,5 +19,6 @@
   "dependencies": {
     "inquirer": "^8.1.2",
     "mysql2": "^2.2.5"
-  }
+  },
+  "devDependencies": {}
 }
