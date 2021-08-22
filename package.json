@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/seanway28/12.EmployeeDataBase#readme",
   "dependencies": {
+    "console.table": "^0.10.0",
     "inquirer": "^8.1.2",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.3.0"
   },
   "devDependencies": {}
 }

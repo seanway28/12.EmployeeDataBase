@@ -1,4 +1,4 @@
-// Require the inquier npm package
+// Require the Inquier npm package
 
 const inquirer = require('inquirer');
 const departmentdbLogic = require('./Logic/departmentbdlogic') 
