@@ -1,10 +1,11 @@
 {
   "name": "12.employeedatabase",
   "version": "1.0.0",
-  "description": "The featured application helps users simplify managing their employees with ease using their own Employee Database. To do this the user will use the Inquierer prompt. Users will then have the option to create amd view all departments, roles and employees.",
-  "main": "inquierer.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "node inquirer.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,10 @@
   "dependencies": {
     "console.table": "^0.10.0",
     "inquirer": "^8.1.2",
+    "jest": "^27.0.6",
     "mysql2": "^2.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
 }
