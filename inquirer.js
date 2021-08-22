@@ -14,9 +14,10 @@ const roledbLogic = require('./Logic/dbLogic/roleDblogic')
         return inquirer.prompt([{ 
             type: 'list', 
             name: 'companyChoice', 
-            message: 'What would you like to do?', 
-            choices: [ 'view all departments', 'view all roles', 'view all employees', 'add a department', 'add a role', 'add an employee', 'update employee role','quit,']
-    }])    .then(answer => { 
+            message: 'What would you like to do?' 
+//          choices: [ 'view all departments', 'view all roles', 'view all employees', 'add a department', 'add a role', 'add an employee', 'update employee role','quit,']
+    }]) 
+       .then(answer => { 
             if (answer.companyChoice === 'view all departments') { 
             readDepartment().then(departments => { 
                return console.table(departments) 
