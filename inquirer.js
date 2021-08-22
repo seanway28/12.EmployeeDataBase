@@ -12,19 +12,20 @@ const roledbLogic = require('./Logic/dbLogic/roleDblogic')
         ================== 
         `); 
         return inquirer.prompt([{ 
-            type: 'list', 
-            name: 'companyChoice', 
-            message: 'What would you like to do?', 
-            validate: titleInput => { 
-                if (titleInput) { 
-                    return true; 
-                } else { 
-                    console.log('Please enter a title.'); 
-                return false; 
-                } 
-            } 
-//          choices: [ 'view all departments', 'view all roles', 'view all employees', 'add a department', 'add a role', 'add an employee', 'update employee role','quit,']
-}])         .then(answer => { 
+                type: 'list', 
+                name: 'companyChoice', 
+                message: 'What would you like to do?', 
+                choices: ['view all departments', 'view all roles', 'view all employees', 'add a department', 'add a role', 'add an employee', 'update employee role','quit'],
+                validate: titleInput => { 
+                    if (titleInput) { 
+                        return true; 
+                    } else { 
+                        console.log('Please enter a title.'); 
+                    return false; 
+                    } 
+                }
+            }])
+         .then(answer => { 
             if (answer.companyChoice === 'view all departments') { 
             readDepartment().then(departments => { 
                return console.table(departments) 
@@ -57,19 +58,18 @@ const roledbLogic = require('./Logic/dbLogic/roleDblogic')
             else {
                 console.log('Goodbye!')
             }
-            
         });
-      };
+    }
 
 
 const addDepartment = () => { 
-    console.log(` 
-    ================= 
-    Add a Department 
-    ================= 
-    `); 
-    return inquirer.prompt([ 
-    { 
+        console.log(` 
+        ================= 
+        Add a Department 
+        ================= 
+        `); 
+        return inquirer.prompt([ 
+        { 
             type: 'input', 
              name: 'departmentName', 
             message: 'What is the name of the department? (Required)', 
