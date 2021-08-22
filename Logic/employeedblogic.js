@@ -1,32 +1,28 @@
-const db = require("../db/connection"); 
+const db = require("../../db/connection"); 
 
-// Get all the employees 
+// Get all employees 
 readEmployee = () => { 
     const sql = `SELECT * FROM employee`; 
-    db.query(sql, (err, data) => {
-        if(err) throw err;
+   
+    return db.query(sql)
+}
 
-        console.table(data)
-    }) 
-   } 
-
-   // create a new employee 
-addEmployee = (first_name, last_name, role_id, manager_id) => { 
+    // Create a new employee 
+    addEmployee = (first_name, last_name, role_id, manager_id) => { 
     const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)`; 
     return db.query(sql, [first_name, last_name, role_id, manager_id]); 
-   } 
+} 
 
-   // update an employee's role 
-updateEmployee = (role_id, id) => { 
+   // Update an employee's role 
+    updateEmployee = (role_id, id) => { 
     const sql = `UPDATE employee SET role_id = ? WHERE id = ?`; 
-    return db.query(sql, [role_id, id] ) 
-   } 
-   
-   // delete an employee 
-deleteEmployee = (id) => { 
+    return db.query(sql, [role_id, id]) 
+} 
+    // Delete an employee 
+    deleteEmployee = (id) => { 
     const sql = `DELETE FROM employee WHERE id = ?`; 
     return db.query(sql, id ) 
-   } 
+} 
    module.exports = { 
     readEmployee, addEmployee, updateEmployee, deleteEmployee 
    }

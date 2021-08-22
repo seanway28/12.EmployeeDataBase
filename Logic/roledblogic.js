@@ -1,22 +1,19 @@
-const db = require('../db/connection');
+const db = require('../../db/connection');
 
-// get the roles
+// Get the roles
 readRole = () => {'SELECT * FROM role';
+    const sql = 'SELECT * FROM role';
 
-return db.query(sql)
+    return db.query(sql)
 }
-
-
-//create a new role
+// Create a new role
 addRole = (title, salary, department_id) => {
     const sql = 'INSERT INTO role (title, salary, department_id) VALUES (?,?,?)';
 
     return db.query(sql,[title, salary, department_id]);
-
 }
 
-//delete a role
-
+//Delete a role
 deleteRole=(id) =>{
     const sql = 'DELETE FROM role WHERE id = ?';
 
