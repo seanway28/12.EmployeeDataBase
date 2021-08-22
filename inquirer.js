@@ -14,16 +14,22 @@ const roledbLogic = require('./Logic/dbLogic/roleDblogic')
         return inquirer.prompt([{ 
             type: 'list', 
             name: 'companyChoice', 
-            message: 'What would you like to do?' 
+            message: 'What would you like to do?', 
+            validate: titleInput => { 
+                if (titleInput) { 
+                    return true; 
+                } else { 
+                    console.log('Please enter a title.'); 
+                return false; 
+                } 
+            } 
 //          choices: [ 'view all departments', 'view all roles', 'view all employees', 'add a department', 'add a role', 'add an employee', 'update employee role','quit,']
-    }]) 
-       .then(answer => { 
+}])         .then(answer => { 
             if (answer.companyChoice === 'view all departments') { 
             readDepartment().then(departments => { 
                return console.table(departments) 
             }).then(() => chooseOption()) 
-        } 
-           
+        }        
             else if (answer.companyChoice === 'view all roles') { 
                 readRole().then(roles => { 
                 return console.table(roles) 
@@ -48,11 +54,13 @@ const roledbLogic = require('./Logic/dbLogic/roleDblogic')
             else if (answer.companyChoice === 'update an employee role') { 
                     updateEmployee(); 
             } 
-            else { 
-                    console.log('Goodbye') 
-            } 
-                        
-})};
+            else {
+                console.log('Goodbye!')
+            }
+            
+        });
+      };
+
 
 const addDepartment = () => { 
     console.log(` 
@@ -69,7 +77,7 @@ const addDepartment = () => {
                 if (nameInput) { 
                     return true; 
                 } else { 
-                console.log('Enter a name please!'); 
+                console.log('Please enter a name.'); 
                 return false; 
                 } 
             } 
