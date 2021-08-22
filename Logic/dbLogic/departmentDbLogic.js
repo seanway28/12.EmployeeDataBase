@@ -1,4 +1,4 @@
-import { query } from '../../db/connection';
+const db = require("../../db/connection"); 
 
 //  Alphabetize Departments
 readDepartment = () => {
@@ -20,7 +20,7 @@ addDepartment = (name) => {
 }
 
 
-export default {
+module.exports = { 
     readDepartment, deleteDepartment, addDepartment
 }
 
