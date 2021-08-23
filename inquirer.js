@@ -32,19 +32,19 @@ const testInquirer = () => {
       if (answer.companyChoice === 'view all departments') { 
         readDepartment().then(departments => { 
           console.table(departments) 
-          testInquirer()
+    //      testInquirer()
         })
       }        
       else if (answer.companyChoice === 'view all roles') { 
         readRole().then(roles => { 
           console.table(roles) 
-          testInquirer()
+    //      testInquirer()
         })
       }
       else if (answer.companyChoice === 'view all employees') { 
         readEmployee().then(employees => { 
           console.table(employees) 
-          testInquirer()
+    //      testInquirer()
         })
       }
       else if (answer.companyChoice === 'add a department') 
