@@ -7,10 +7,10 @@ const db = mysql.createConnection({
 user:'root',
 // Your mysql password,
 password: 'Bloomington28*',
-database: 'Mordor'
+database: 'company'
 });
-
-db.connect();
+    (method)
+db.connect(function(e){if(e) console.log(e)});
 db.query = util.promisify(db.query);
 
 module.exports = db;
