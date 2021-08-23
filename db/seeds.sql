@@ -18,9 +18,9 @@ VALUES
  INSERT INTO employee 
  (id, first_name, last_name, role_id, manager_id) 
 VALUES 
- (1'Gandolf', 'Frodo', 1, 4), 
- (2 'Arwen', 'Aragorn', 2, 4), 
- (3, 'Galadriel', 'Legolas', 3, 4), 
+ (1,'Gandolf', 'The White', 1, 4), 
+ (2, 'Arwen', 'Aragorn', 2, 4), 
+ (3, 'Galadriel', 'Lady of Light', 3, 4), 
  (4, 'Samwise', 'Gimli son of Gloin', 4, 4); 
 
 
