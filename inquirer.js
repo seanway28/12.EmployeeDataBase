@@ -1,6 +1,7 @@
 // Require the Inquier npm package
 
 const inquirer = require('inquirer');
+const Connection = require('mysql2/typings/mysql/lib/Connection');
 const departmentDbLogic = require('./Logic/dbLogic/departmentDbLogic')
 const employeedbLogic = require('./Logic/dbLogic/employeeDblogic') 
 const roledbLogic = require('./Logic/dbLogic/roleDblogic') 
@@ -11,6 +12,7 @@ const testInquirer = () => {
     Employee Database 
     ================== 
     `); 
+
     inquirer.prompt([{ 
       type: 'list', 
       name: 'companyChoice', 
