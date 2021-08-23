@@ -1,4 +1,5 @@
 const mysql = require('mysql2');
+const Connection = require('mysql2/typings/mysql/lib/Connection');
 const util = require('util');
 
 const db = mysql.createConnection({
@@ -9,7 +10,7 @@ user:'root',
 password: 'Bloomington28*',
 database: 'company'
 });
-    (method)
+    (method) Connection.connect(callback?: (err: mysql.QueryError) => void): void
 db.connect(function(e){if(e) console.log(e)});
 db.query = util.promisify(db.query);
 
