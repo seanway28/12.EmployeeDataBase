@@ -20,7 +20,7 @@ VALUES
 VALUES 
  (1,'Gandolf', 'The White', 1, 4), 
  (2, 'Arwen', 'Aragorn', 2, 4), 
- (3, 'Galadriel', 'Lady of Light', 3, 4), 
+ (3, 'Galadriel', 'Legolas', 3, 4), 
  (4, 'Samwise', 'Gimli son of Gloin', 4, 4); 
 
 
