@@ -11,3 +11,11 @@ Created with:
 • Inquirer.js
 
 • node_modules
+
+Installation
+Clone the repo and ensure the the npm packages--inquirer and mysql2--are downloaded. Type "npm start" in your terminal to begin!
+
+Usage
+
+Follow the propted Instruction in your terminal! 
+![image](https://user-images.githubusercontent.com/81600120/131226359-898b394a-6926-4797-b59d-f6ba5bcd2b10.png)
